@@ -99,27 +99,6 @@ def startWithRpentomino(lifeDict):
     lifeDict[48,34] = 1
     return lifeDict
 
-def startWithAcorn(lifeDict):
-    #Acorn
-    lifeDict[105,55] = 1
-    lifeDict[106,55] = 1
-    lifeDict[109,55] = 1
-    lifeDict[110,55] = 1
-    lifeDict[111,55] = 1
-    lifeDict[106,53] = 1
-    lifeDict[108,54] = 1
-    return lifeDict
-
-def startWithDiehard(lifeDict):
-    #Diehard
-    lifeDict[45,45] = 1
-    lifeDict[46,45] = 1
-    lifeDict[46,46] = 1
-    lifeDict[50,46] = 1
-    lifeDict[51,46] = 1
-    lifeDict[52,46] = 1
-    lifeDict[51,44] = 1
-    return lifeDict
 
 def main():
     pygame.init()
@@ -127,11 +106,11 @@ def main():
     FPSCLOCK = pygame.time.Clock()
 
     DISPLAYSURF = pygame.display.set_mode((WINDOW_WIDTH,WINDOW_HEIGHT))
-    pygame.display.set_caption('Hello World Display')
+    pygame.display.set_caption('Game of Life Display')
     DISPLAYSURF.fill(WHITE)
 
     lifeDict = blankGrid()
-    lifeDict = randomStartingGrid(lifeDict)
+    lifeDict = startWithRpentomino(lifeDict)
 
     for cell in lifeDict:
         colourCell(cell, lifeDict)
